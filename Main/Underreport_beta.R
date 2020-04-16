@@ -116,3 +116,5 @@ output[,j] = main_CFR(nsim)[[2]]
 lnorm_fit <- fitdist(output[t,],"lnorm")
 
 write.table(output, file = "UnderReport_US.csv", sep=",")
+#write.table(output, file = "UnderReport_Canada.csv", sep=",")
+#write.table(output, file = "UnderReport_NYC.csv", sep=",")
