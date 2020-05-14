@@ -61,19 +61,21 @@ return(my_b_CFR)
 
 #Estimating U based on gamma distribution Moment Generating Function
 
-U <- function(nsim,r){
-  
-  U = array()
-  
-  for (i in 1:nsim){
-    mu = rnorm(1,pre.mu,2) #Sampling from normal for mean of gamma
-    sd = rnorm(1,pre.sd,1) #Sampling from normal for sd of gamma
-    cv = sd/mu
-    cv2 = cv^2
-    U[i] = 1/((1+(r*mu*cv2))^(cv2))
-  }
-  return(U)
-}
+# Thu May 14 15:00:33 2020 ------------------------------
+
+# U <- function(nsim,r){
+#   
+#   U = array()
+#   
+#   for (i in 1:nsim){
+#     mu = rnorm(1,pre.mu,2) #Sampling from normal for mean of gamma
+#     sd = rnorm(1,pre.sd,1) #Sampling from normal for sd of gamma
+#     cv = sd/mu
+#     cv2 = cv^2
+#     U[i] = 1/((1+(r*mu*cv2))^(cv2))
+#   }
+#   return(U)
+# }
 
 #Estimating U_CFR
 
@@ -96,12 +98,12 @@ U_est <- function (nsim){
 
 #building results
 main_CFR<- function(nsim){
-  U_est = U_est(nsim)
+  U.est = U_est(nsim)
   
   for (i in 1:t) {
     
     results[i,1] <- i
-    results[i,2] <- mean(U_est[i,])
+    results[i,2] <- mean(U.est[i,])
       }
   return(results)
 }
